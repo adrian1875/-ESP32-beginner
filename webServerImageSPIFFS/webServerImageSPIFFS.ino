@@ -1,8 +1,7 @@
-#include <SPIFFS.h>
-
 #include <WiFi.h> // 와이파이 라이브러리
 #include <WebServer.h>  //  웹서버 라이브러리
 #include <FS.h> //파일 시스템 라이브러리
+#include <SPIFFS.h>
 
 #define bulb  5 // BULB 핀번호
 
@@ -12,7 +11,7 @@ const char* ID = "409";
 const char* PW = "polybot409";
 
 
-boolean st = false;
+boolean state = false;
 
 void setup()
 {
@@ -48,7 +47,7 @@ void setup()
 }
 
 void handleRoot() { // 루트에 접속할때 실행할 내용
-  if (st) server.sendHeader("Location", "/on.html", true);  // 접속하면 on.html여기로 리디랙션이 됨
+  if (state) server.sendHeader("Location", "/on.html", true);  // 접속하면 on.html여기로 리디랙션이 됨
   else server.sendHeader("Location", "/off.html", true);
   server.send(302, "text/html", "");
 }
@@ -84,12 +83,12 @@ bool loadFromSpiffs(String path) { // SPIFFS 에서 파일 확인
   if (SPIFFS.exists(path)) {  // 파일 시스템에 파일이 존제하느냐?를 묻는 것
     // 요청한 주소에 따른 명령 처리
     if(path == "/on.html"){
-      st = true;
-      digitalWrite(bulb, st);
+      state = true;
+      digitalWrite(bulb, state);
     }
     if(path == "/off.html"){
-      st = false;
-      digitalWrite(bulb, st);
+      state = false;
+      digitalWrite(bulb, state);
     }
 
     // 주소의 확장자에따라 데이터 타입 지정

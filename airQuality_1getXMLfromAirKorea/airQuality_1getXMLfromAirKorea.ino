@@ -13,7 +13,7 @@ const char* ssid     = "409";
 const char* password = "polybot409";
 
 String city = "경북"; // 서울, 부산, 대구, 인천, 광주, 대전, 울산, 경기, 강원, 충북, 충남, 전북, 전남, 경북, 경남, 제주, 세종 중 입력
-String key = "GoigxPSUzAF0LNPYi8mrLx/FPpydJY76rVh/0hfQUJc+KEzfMqbMHZxoiLtAci6dx3LtGPVwMjY4SZxKv0QAnQ==";
+String key = "GoigxPSUzAF0LNPYi8mrLx%2FFPpydJY76rVh%2F0hfQUJc%2BKEzfMqbMHZxoiLtAci6dx3LtGPVwMjY4SZxKv0QAnQ%3D%3D";
 String url = "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?sidoName=" + city + "&pageNo=1&numOfRows=100&returnType=xml&serviceKey=" + key;
 
 void setup()
