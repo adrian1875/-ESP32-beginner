@@ -1,3 +1,5 @@
+#include <dummy.h>
+
 #include <WiFi.h> // 와이파이 라이브러리
 #include <WebServer.h>  // 웹서버 라이브러리
 
